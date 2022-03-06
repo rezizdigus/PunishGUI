@@ -2,7 +2,7 @@ name: PunishGUI
 version: '${project.version}'
 main: net.zdigus.punishgui.PunishGUI
 authors: [ rezizdigus ]
-depend: [ LiteBans ]
+softdepend: [ LiteBans, AdvancedBan ]
 description: Punish players on your server through a GUI
 website: https://zdigus.net
 commands:

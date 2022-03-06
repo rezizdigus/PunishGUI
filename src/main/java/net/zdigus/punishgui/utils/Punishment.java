@@ -9,24 +9,24 @@ import org.bukkit.entity.Player;
 
 public class Punishment {
     private final Player sender;
-    private final FileConfiguration config;
 
     private final String submitter;
     private final String target;
-    private String reason = "No reason defined";
-    private boolean silent = true;
-    private String duration = "1d";
-    private String type = "ban"; // warn, mute, ban, ipban
+    private String reason;
+    private boolean silent;
+    private String duration;
+    private String type; // warn, mute, ban, ipban
     private boolean permanent = false;
+    private final boolean litebans;
 
     public Punishment(Player submitter, OfflinePlayer target, FileConfiguration config) {
-        this.config = config;
 
         this.submitter = submitter.getName();
         this.target = target.getName();
 
         this.reason = config.getString("defaultReason");
         this.silent = config.getBoolean("silentByDefault");
+        this.litebans = config.getBoolean("litebans");
         this.duration = config.getString("defaultDuration");
         this.setDuration(this.duration);
         this.type = config.getString("defaultType");
@@ -58,7 +58,7 @@ public class Punishment {
     }
 
     public void submit() {
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), this.type + " " + this.target + " " + this.reason + (!this.permanent ? " " + this.duration : "") + (this.silent ? " -s" : "") + " --sender=" + this.submitter + " --sender-uuid=" + this.sender.getUniqueId());
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), this.type + " " + this.target + " " + this.reason + (!this.permanent ? " " + this.duration : "") + (this.silent ? " -s" : "") + (this.litebans ? " --sender=" + this.submitter + " --sender-uuid=" + this.sender.getUniqueId() : ""));
         this.sender.sendMessage(ChatColor.GREEN + "You have confirmed the punishment for " + this.target);
         this.sender.closeInventory();
     }

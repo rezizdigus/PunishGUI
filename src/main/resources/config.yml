@@ -1,3 +1,6 @@
+# This plugin was made to use with LiteBans, but it should also work with other plugins which follow this command scheme:
+# /<warn/mute/ban/ipban> <username> <reason> <duration> <-s (silent)>
+
 # required permission to use the /punish <player> command
 requiredPermission: "punishgui.use"
 
@@ -15,6 +18,9 @@ defaultReason: "No reason defined."
 
 # sets the default type when going to the customisation menu
 defaultType: "ban"
+
+# SET THIS TO "FALSE" IF YOU ARE NOT USING LITEBANS
+litebans: false
 
 # the list of punishment templates. due to gui limitations you can have only up to 45 templates, any more will be ignored.
 punishmentTemplates:
