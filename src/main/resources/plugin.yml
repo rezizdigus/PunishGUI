@@ -1,0 +1,14 @@
+name: PunishGUI
+version: '${project.version}'
+main: net.zdigus.punishgui.PunishGUI
+authors: [ rezizdigus ]
+depend: [ LiteBans ]
+description: Punish players on your server through a GUI
+website: https://zdigus.net
+commands:
+  punish:
+    description: Punishment GUI
+    usage: /punish <player>
+  punishgui:
+      description: Admin command for PunishGUI. Let's you reload the config.
+      usage: /punishgui reload

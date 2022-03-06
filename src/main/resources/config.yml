@@ -1,0 +1,28 @@
+# required permission to use the /punish <player> command
+requiredPermission: "punishgui.use"
+
+# the permission required to use the /punishgui command (for reloading the config)
+requiredPermissionAdmin: "punishgui.admin"
+
+# if enabled punishments will be silent by default
+silentByDefault: true
+
+# sets the default duration when going to the customisation menu
+defaultDuration: "1d"
+
+# sets the default reason
+defaultReason: "No reason defined."
+
+# sets the default type when going to the customisation menu
+defaultType: "ban"
+
+# the list of punishment templates. due to gui limitations you can have only up to 45 templates, any more will be ignored.
+punishmentTemplates:
+  punishment1: # ! it is important that this is "punishment<number>" and that the list is in order without skipping any numbers !
+    reason: "Unfair advantage" # the name of the template is set to the reason
+    duration: "30d" # the duration of the punishment
+    type: "ban" # can be: warn, mute, ban or ipban
+  punishment2:
+    reason: "Spamming"
+    duration: "1d"
+    type: "mute"
